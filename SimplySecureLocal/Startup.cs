@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimplySecureLocal.Data.DataAccessLayer.BootMessages;
 using SimplySecureLocal.Data.DataAccessLayer.HeartBeats;
 using SimplySecureLocal.Data.DataAccessLayer.StatusChanges;
-using SimplySecureLocal.Data.DataContext;
 using SimplySecureLocal.Data.Initialization;
 
 namespace SimplySecureLocal
@@ -43,7 +41,7 @@ namespace SimplySecureLocal
 
             app.UseMvc();
 
-            ApplicationInitializer.Seed(app.ApplicationServices).Wait();
+            DataContextInitializer.Seed(app.ApplicationServices).Wait();
         }
     }
 }

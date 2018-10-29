@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimplySecureLocal.Data.Initialization
 {
-    public static class ApplicationInitializer
+    public static class DataContextInitializer
     {
         public static async Task Seed(IServiceProvider serviceProvider)
         {

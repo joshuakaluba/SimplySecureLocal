@@ -17,6 +17,20 @@ namespace SimplySecureLocal.Controllers
             StatusChangesRepository = statusChangesRepository;
         }
 
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+                var statusChanges = await StatusChangesRepository.GetStatusChanges();
+
+                return Ok(statusChanges);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ErrorResponse(ex));
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] BaseComponentViewModel statusChangeViewModel)
         {

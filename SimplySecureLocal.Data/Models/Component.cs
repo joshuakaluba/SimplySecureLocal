@@ -8,7 +8,7 @@ namespace SimplySecureLocal.Data.Models
         [JsonProperty("moduleId")]
         public Guid ModuleId { get; set; }
 
-        [JsonProperty("status")]
+        [JsonProperty("state")]
         public bool State { get; set; }
     }
 }
