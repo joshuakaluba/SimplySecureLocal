@@ -2,11 +2,11 @@
 using SimplySecureLocal.Data.Models;
 using System.Threading.Tasks;
 
-namespace SimplySecureLocal.Data.DataAccessLayer.HeartBeats
+namespace SimplySecureLocal.Data.DataAccessLayer.HeartBeat
 {
     public sealed class HeartBeatRepository : BaseRepository, IHeartBeatRepository
     {
-        public async Task CreateHeartBeat(HeartBeat heartBeat)
+        public async Task CreateHeartBeat(Models.HeartBeat heartBeat)
         {
             using (DataContext = new SimplySecureDataContext())
             {

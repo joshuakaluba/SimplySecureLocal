@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SimplySecureLocal.Data.DataAccessLayer.BootMessages;
+using SimplySecureLocal.Common.Exception;
+using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
 using System;
@@ -31,13 +32,20 @@ namespace SimplySecureLocal.Controllers
 
                 await BootMessageRepository.CreateBootMessage(bootMessage);
 
-                var moduleResponse =  new ModuleResponse
+                await BootMessageRepository.PostBootToBackendApi(bootMessage);
+
+                var moduleResponse = new ModuleResponse
                 {
                     Triggered = false,
+
                     Armed = false
                 };
 
                 return Ok(moduleResponse);
+            }
+            catch (ApiException ex)
+            {
+                return BadRequest(new ErrorResponse(ex));
             }
             catch (Exception ex)
             {

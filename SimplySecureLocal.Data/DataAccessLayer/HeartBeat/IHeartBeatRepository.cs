@@ -1,10 +1,10 @@
 ﻿using SimplySecureLocal.Data.Models;
 using System.Threading.Tasks;
 
-namespace SimplySecureLocal.Data.DataAccessLayer.HeartBeats
+namespace SimplySecureLocal.Data.DataAccessLayer.HeartBeat
 {
     public interface IHeartBeatRepository
     {
-        Task CreateHeartBeat(HeartBeat bootMessage);
+        Task CreateHeartBeat(Models.HeartBeat bootMessage);
     }
 }

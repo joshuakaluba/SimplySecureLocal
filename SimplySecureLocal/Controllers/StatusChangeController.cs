@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SimplySecureLocal.Data.DataAccessLayer.StatusChanges;
+using SimplySecureLocal.Data.DataAccessLayer.StatusChange;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
 using System;

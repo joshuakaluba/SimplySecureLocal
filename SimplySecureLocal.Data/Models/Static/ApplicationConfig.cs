@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace SimplySecureLocal.Data.Static
+namespace SimplySecureLocal.Data.Models.Static
 {
-    public static class ApplicationKeys
+    public static class ApplicationConfig
     {
         public static string Port
             = Environment.GetEnvironmentVariable
-                ("SIMPLY_SECURE_APPLICATION_PORT", target: EnvironmentVariableTarget.Process);
+                ("SIMPLY_SECURE_LOCAL_APPLICATION_PORT", target: EnvironmentVariableTarget.Process);
 
         internal static string DatabaseName
             = Environment.GetEnvironmentVariable
@@ -23,5 +23,11 @@ namespace SimplySecureLocal.Data.Static
         internal static string DatabaseHost
             = Environment.GetEnvironmentVariable
                 ("SIMPLY_SECURE_LOCAL_DB_HOST", target: EnvironmentVariableTarget.Process);
+
+        internal static string BackendHost
+            = Environment.GetEnvironmentVariable
+                ("SIMPLY_SECURE_LOCAL_BACKEND_HOST", target: EnvironmentVariableTarget.Process);
+
+        internal static Uri BackendUri = new Uri(BackendHost);
     }
 }

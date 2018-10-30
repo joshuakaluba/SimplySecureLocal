@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SimplySecureLocal.Data.DataAccessLayer.HeartBeats;
+using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
 using System;

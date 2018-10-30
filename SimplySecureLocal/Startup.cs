@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SimplySecureLocal.Data.DataAccessLayer.BootMessages;
-using SimplySecureLocal.Data.DataAccessLayer.HeartBeats;
-using SimplySecureLocal.Data.DataAccessLayer.StatusChanges;
+using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
+using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
+using SimplySecureLocal.Data.DataAccessLayer.StatusChange;
 using SimplySecureLocal.Data.Initialization;
 
 namespace SimplySecureLocal

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using SimplySecureLocal.Data.Static;
+using SimplySecureLocal.Data.Models.Static;
 
 namespace SimplySecureLocal
 {
@@ -14,7 +14,7 @@ namespace SimplySecureLocal
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseUrls($"http://*:{ApplicationKeys.Port}")
+                .UseUrls($"http://*:{ApplicationConfig.Port}")
                     .UseStartup<Startup>();
     }
 }

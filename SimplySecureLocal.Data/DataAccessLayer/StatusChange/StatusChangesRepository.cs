@@ -4,11 +4,11 @@ using SimplySecureLocal.Data.Models;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace SimplySecureLocal.Data.DataAccessLayer.StatusChanges
+namespace SimplySecureLocal.Data.DataAccessLayer.StatusChange
 {
     public sealed class StatusChangesRepository : BaseRepository, IStatusChangesRepository
     {
-        public async Task CreateStatusChange(StatusChange statusChange)
+        public async Task CreateStatusChange(Models.StatusChange statusChange)
         {
             using (DataContext = new SimplySecureDataContext())
             {
@@ -18,7 +18,7 @@ namespace SimplySecureLocal.Data.DataAccessLayer.StatusChanges
             }
         }
 
-        public async Task<List<StatusChange>> GetStatusChanges()
+        public async Task<List<Models.StatusChange>> GetStatusChanges()
         {
             using (DataContext = new SimplySecureDataContext())
             {

@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SimplySecureLocal.Common\SimplySecureLocal.Common.csproj" />
     <ProjectReference Include="..\SimplySecureLocal.Data\SimplySecureLocal.Data.csproj" />
   </ItemGroup>
 
