@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Text;
 
 namespace SimplySecureLocal.Controllers
@@ -7,8 +8,17 @@ namespace SimplySecureLocal.Controllers
     [ApiController]
     public sealed class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
         public ActionResult Get()
         {
+            _logger.LogInformation("Get Homepage request");
+
             const string html = @"<!doctype html>
                         <html lang='en'>
                           <head>
