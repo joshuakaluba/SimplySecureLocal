@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SimplySecureLocal.Common.Exception;
+using Microsoft.Extensions.Logging;
 using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
@@ -11,9 +11,10 @@ namespace SimplySecureLocal.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class BootController : Controller
+    public class BootController : Controller<BootController>
     {
-        public BootController(IBootMessageRepository bootMessageRepository)
+        public BootController(IBootMessageRepository bootMessageRepository, ILogger<BootController> logger)
+            : base(logger)
         {
             BootMessageRepository = bootMessageRepository;
         }
@@ -43,12 +44,10 @@ namespace SimplySecureLocal.Controllers
 
                 return Ok(moduleResponse);
             }
-            catch (ApiException ex)
-            {
-                return BadRequest(new ErrorResponse(ex));
-            }
             catch (Exception ex)
             {
+                Logger.LogError(ex.Message);
+
                 return BadRequest(new ErrorResponse(ex));
             }
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SimplySecureLocal.Data.DataAccessLayer.StatusChange;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
@@ -10,9 +11,10 @@ namespace SimplySecureLocal.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class StatusChangeController : Controller
+    public class StatusChangeController : Controller<StatusChangeController>
     {
-        public StatusChangeController(IStatusChangesRepository statusChangesRepository)
+        public StatusChangeController(IStatusChangesRepository statusChangesRepository, ILogger<StatusChangeController> logger)
+            : base(logger)
         {
             StatusChangesRepository = statusChangesRepository;
         }
@@ -21,12 +23,15 @@ namespace SimplySecureLocal.Controllers
         {
             try
             {
-                var statusChanges = await StatusChangesRepository.GetStatusChanges();
+                var statusChanges 
+                    = await StatusChangesRepository.GetStatusChanges();
 
                 return Ok(statusChanges);
             }
             catch (Exception ex)
             {
+                Logger.LogError(ex.Message);
+                
                 return BadRequest(new ErrorResponse(ex));
             }
         }
@@ -59,6 +64,8 @@ namespace SimplySecureLocal.Controllers
             }
             catch (Exception ex)
             {
+                Logger.LogError(ex.Message);
+
                 return BadRequest(new ErrorResponse(ex));
             }
         }

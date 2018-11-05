@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
@@ -10,9 +11,10 @@ namespace SimplySecureLocal.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class HeartBeatController : Controller
+    public class HeartBeatController : Controller<HeartBeatController>
     {
-        public HeartBeatController(IHeartBeatRepository heartBeatRepository)
+        public HeartBeatController(IHeartBeatRepository heartBeatRepository, Logger<HeartBeatController> logger)
+        : base(logger)
         {
             HeartBeatRepository = heartBeatRepository;
         }
