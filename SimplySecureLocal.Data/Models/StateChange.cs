@@ -1,6 +1,6 @@
 ﻿namespace SimplySecureLocal.Data.Models
 {
-    public class StatusChange : Component
+    public class StateChange : Component
     {
     }
 }

@@ -37,6 +37,8 @@ namespace SimplySecureLocal.Controllers
             }
             catch (Exception ex)
             {
+                Logger.LogError(ex.Message);
+
                 return BadRequest(new ErrorResponse(ex));
             }
         }

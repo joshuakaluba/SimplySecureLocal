@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
 using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
-using SimplySecureLocal.Data.DataAccessLayer.StatusChange;
+using SimplySecureLocal.Data.DataAccessLayer.StateChange;
 using SimplySecureLocal.Data.Initialization;
 
 namespace SimplySecureLocal
@@ -25,7 +25,7 @@ namespace SimplySecureLocal
 
             services.AddScoped<IHeartBeatRepository, HeartBeatRepository>();
 
-            services.AddScoped<IStatusChangesRepository, StatusChangesRepository>();
+            services.AddScoped<IStateChangesRepository, StateChangesRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

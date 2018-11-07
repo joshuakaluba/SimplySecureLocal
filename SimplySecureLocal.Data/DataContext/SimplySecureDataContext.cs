@@ -10,7 +10,7 @@ namespace SimplySecureLocal.Data.DataContext
 
         internal DbSet<HeartBeat> HeartBeats { get; set; }
 
-        internal DbSet<StatusChange> StatusChanges { get; set; }
+        internal DbSet<StateChange> StateChanges { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

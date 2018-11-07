@@ -13,6 +13,8 @@ namespace SimplySecureLocal.Data.Models
         public ModuleResponse(bool triggered, bool armed)
         {
             Triggered = triggered;
+
+            Armed = armed;
         }
 
         [JsonProperty("triggered")]
