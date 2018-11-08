@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using SimplySecureLocal.Data.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using SimplySecureLocal.Data.Models;
 
 namespace SimplySecureLocal.Data.DataAccessLayer.StateChange
 {

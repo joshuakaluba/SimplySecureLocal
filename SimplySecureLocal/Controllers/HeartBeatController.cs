@@ -28,7 +28,7 @@ namespace SimplySecureLocal.Controllers
                 {
                     ModuleId = Guid.Parse(heartBeatViewModel.ModuleId),
 
-                    State = heartBeatViewModel.Status
+                    State = heartBeatViewModel.State
                 };
 
                 await HeartBeatRepository.CreateHeartBeat(heartBeat);

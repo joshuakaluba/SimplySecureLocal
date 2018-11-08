@@ -45,7 +45,7 @@ namespace SimplySecureLocal.Controllers
                 {
                     ModuleId = Guid.Parse(stateChangeViewModel.ModuleId),
 
-                    State = stateChangeViewModel.Status
+                    State = stateChangeViewModel.State
                 };
 
                 await StateChangesRepository.CreateStateChange(stateChange);

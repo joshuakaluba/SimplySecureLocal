@@ -28,7 +28,7 @@ namespace SimplySecureLocal.Controllers
                 {
                     ModuleId = Guid.Parse(bootViewModel.ModuleId),
 
-                    State = bootViewModel.Status
+                    State = bootViewModel.State
                 };
 
                 await BootMessageRepository.CreateBootMessage(bootMessage);

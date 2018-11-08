@@ -1,5 +1,4 @@
-﻿using SimplySecureLocal.Data.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace SimplySecureLocal.Data.DataAccessLayer.HeartBeat
 {

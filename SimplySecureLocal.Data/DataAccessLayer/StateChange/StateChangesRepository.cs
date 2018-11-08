@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SimplySecureLocal.Common.Exception;
 using SimplySecureLocal.Data.DataContext;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.Models.Static;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace SimplySecureLocal.Data.DataAccessLayer.StateChange
 {
@@ -35,7 +35,7 @@ namespace SimplySecureLocal.Data.DataAccessLayer.StateChange
         {
             using (var client = ApplicationHttpClient(ApplicationConfig.BackendUri))
             {
-                var response = await client.PostAsJsonAsync(ApplicationEndPoint.StatusChange, stateChange);
+                var response = await client.PostAsJsonAsync(ApplicationEndPoint.StateChange, stateChange);
 
                 if (response.IsSuccessStatusCode)
                 {
