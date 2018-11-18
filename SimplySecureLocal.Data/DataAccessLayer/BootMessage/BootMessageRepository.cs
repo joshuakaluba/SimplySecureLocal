@@ -32,10 +32,10 @@ namespace SimplySecureLocal.Data.DataAccessLayer.BootMessage
 
                     return moduleResponse;
                 }
-                else
-                {
-                    throw ApiException.CreateApiException(response);
-                }
+
+                var ex = ApiException.CreateApiException(response);
+
+                throw ex;
             }
         }
     }

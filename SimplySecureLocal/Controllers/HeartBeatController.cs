@@ -13,7 +13,7 @@ namespace SimplySecureLocal.Controllers
     [ApiController]
     public class HeartBeatController : Controller<HeartBeatController>
     {
-        public HeartBeatController(IHeartBeatRepository heartBeatRepository, Logger<HeartBeatController> logger)
+        public HeartBeatController(IHeartBeatRepository heartBeatRepository, ILogger<HeartBeatController> logger)
         : base(logger)
         {
             HeartBeatRepository = heartBeatRepository;

@@ -33,10 +33,10 @@ namespace SimplySecureLocal.Controllers
 
                 await BootMessageRepository.CreateBootMessage(bootMessage);
 
-                var moduleResponse 
-                    =  await BootMessageRepository
+                var moduleResponse
+                    = await BootMessageRepository
                         .PostBootToBackendApi(bootMessage);
-                
+
                 return Ok(moduleResponse);
             }
             catch (Exception ex)

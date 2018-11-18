@@ -24,7 +24,7 @@ namespace SimplySecureLocal.Data.Models.Static
             = Environment.GetEnvironmentVariable
                 ("SIMPLY_SECURE_LOCAL_DB_HOST", target: EnvironmentVariableTarget.Process);
 
-        internal static string BackendHost
+        internal static string BackendHost 
             = Environment.GetEnvironmentVariable
                 ("SIMPLY_SECURE_LOCAL_BACKEND_HOST", target: EnvironmentVariableTarget.Process);
 
