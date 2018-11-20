@@ -11,8 +11,6 @@ namespace SimplySecureLocal.Data.Models
         [JsonProperty("dateCreated")]
         public virtual DateTime DateCreated { get; set; } = DateTime.UtcNow;
 
-        public string DisplayDate => DateCreated.ToString("MMM dd, yyyy");
-
         public bool Equals(Auditable other)
         {
             return Id == other.Id;
