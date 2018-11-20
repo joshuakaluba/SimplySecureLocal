@@ -2,5 +2,6 @@
 {
     public class HeartBeat : Component
     {
+        public bool Acknowledged { get; set; }
     }
 }
