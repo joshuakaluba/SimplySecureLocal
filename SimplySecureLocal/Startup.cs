@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Reflection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +8,8 @@ using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
 using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
 using SimplySecureLocal.Data.DataAccessLayer.StateChange;
 using SimplySecureLocal.Data.Initialization;
+using NSwag.AspNetCore;
+using NJsonSchema;
 
 namespace SimplySecureLocal
 {
@@ -28,6 +31,8 @@ namespace SimplySecureLocal
             services.AddScoped<IStateChangesRepository, StateChangesRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSwagger();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -40,6 +45,11 @@ namespace SimplySecureLocal
             app.UseStaticFiles();
 
             app.UseMvc();
+
+            app.UseSwaggerUi(typeof(Startup).GetTypeInfo().Assembly, settings =>
+            {
+                settings.GeneratorSettings.DefaultUrlTemplate = "{controller}/{action}/{id?}";
+            });
 
             DataContextInitializer.Seed(app.ApplicationServices).Wait();
         }
