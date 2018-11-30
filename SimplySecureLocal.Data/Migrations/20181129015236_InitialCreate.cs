@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SimplySecureLocal.Data.Migrations
 {
-    public partial class initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,7 @@ namespace SimplySecureLocal.Data.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     ModuleId = table.Column<Guid>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    State = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,7 +28,8 @@ namespace SimplySecureLocal.Data.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     ModuleId = table.Column<Guid>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    State = table.Column<bool>(nullable: false),
+                    Acknowledged = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,17 +37,17 @@ namespace SimplySecureLocal.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StatusChanges",
+                name: "StateChanges",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     ModuleId = table.Column<Guid>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    State = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StatusChanges", x => x.Id);
+                    table.PrimaryKey("PK_StateChanges", x => x.Id);
                 });
         }
 
@@ -59,7 +60,7 @@ namespace SimplySecureLocal.Data.Migrations
                 name: "HeartBeats");
 
             migrationBuilder.DropTable(
-                name: "StatusChanges");
+                name: "StateChanges");
         }
     }
 }

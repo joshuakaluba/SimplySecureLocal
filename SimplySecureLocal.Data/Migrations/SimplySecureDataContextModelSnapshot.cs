@@ -2,22 +2,19 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SimplySecureLocal.Data.DataContext;
 
 namespace SimplySecureLocal.Data.Migrations
 {
     [DbContext(typeof(SimplySecureDataContext))]
-    [Migration("20181018024338_initial")]
-    partial class initial
+    partial class SimplySecureDataContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
 
             modelBuilder.Entity("SimplySecureLocal.Data.Models.BootMessage", b =>
                 {
@@ -28,7 +25,7 @@ namespace SimplySecureLocal.Data.Migrations
 
                     b.Property<Guid>("ModuleId");
 
-                    b.Property<int>("Status");
+                    b.Property<bool>("State");
 
                     b.HasKey("Id");
 
@@ -40,18 +37,20 @@ namespace SimplySecureLocal.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Acknowledged");
+
                     b.Property<DateTime>("DateCreated");
 
                     b.Property<Guid>("ModuleId");
 
-                    b.Property<int>("Status");
+                    b.Property<bool>("State");
 
                     b.HasKey("Id");
 
                     b.ToTable("HeartBeats");
                 });
 
-            modelBuilder.Entity("SimplySecureLocal.Data.Models.StatusChange", b =>
+            modelBuilder.Entity("SimplySecureLocal.Data.Models.StateChange", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -60,11 +59,11 @@ namespace SimplySecureLocal.Data.Migrations
 
                     b.Property<Guid>("ModuleId");
 
-                    b.Property<int>("Status");
+                    b.Property<bool>("State");
 
                     b.HasKey("Id");
 
-                    b.ToTable("StatusChanges");
+                    b.ToTable("StateChanges");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,15 +9,14 @@ using SimplySecureLocal.Data.DataContext;
 namespace SimplySecureLocal.Data.Migrations
 {
     [DbContext(typeof(SimplySecureDataContext))]
-    [Migration("20181108024406_UpdatedState")]
-    partial class UpdatedState
+    [Migration("20181129015236_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
 
             modelBuilder.Entity("SimplySecureLocal.Data.Models.BootMessage", b =>
                 {
@@ -39,6 +38,8 @@ namespace SimplySecureLocal.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Acknowledged");
 
                     b.Property<DateTime>("DateCreated");
 
