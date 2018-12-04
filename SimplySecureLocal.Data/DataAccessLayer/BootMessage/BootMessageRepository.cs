@@ -23,7 +23,7 @@ namespace SimplySecureLocal.Data.DataAccessLayer.BootMessage
         {
             using (var client = ApplicationHttpClient(ApplicationConfig.BackendUri))
             {
-                var response = await client.PostAsJsonAsync(ApplicationEndPoint.ModuleBoot, bootMessage);
+                var response = await client.PostAsJsonAsync(BackendServerEndPoint.ModuleBoot, bootMessage);
 
                 if (response.IsSuccessStatusCode)
                 {
