@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimplySecureLocal.Data.Models;
-using SimplySecureLocal.Data.Models.Static;
 
 namespace SimplySecureLocal.Data.DataContext
 {
@@ -14,14 +13,7 @@ namespace SimplySecureLocal.Data.DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString
-                = $"Server={ApplicationConfig.DatabaseHost};" +
-                    $"database={ApplicationConfig.DatabaseName};" +
-                        $"uid={ApplicationConfig.DatabaseUser};" +
-                            $"pwd={ApplicationConfig.DatabasePassword};" +
-                                $"pooling=true;";
-
-            optionsBuilder.UseMySql(connectionString);
+            optionsBuilder.UseSqlite("Data Source=SimplySecureLocalDb.db");
         }
     }
 }
