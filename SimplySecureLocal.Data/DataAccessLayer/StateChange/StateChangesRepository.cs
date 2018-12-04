@@ -35,7 +35,7 @@ namespace SimplySecureLocal.Data.DataAccessLayer.StateChange
         {
             using (var client = ApplicationHttpClient(ApplicationConfig.BackendUri))
             {
-                var response = await client.PostAsJsonAsync(ApplicationEndPoint.StateChange, stateChange);
+                var response = await client.PostAsJsonAsync(BackendServerEndPoint.StateChange, stateChange);
 
                 if (response.IsSuccessStatusCode)
                 {
