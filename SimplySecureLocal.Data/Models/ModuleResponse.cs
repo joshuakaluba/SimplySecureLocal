@@ -5,6 +5,8 @@ namespace SimplySecureLocal.Data.Models
     public class ModuleResponse
     {
         public static readonly string AlarmFlag = "ALARM_FLAG";
+        
+        public static readonly string NoActionFlag = "NO_ACTION";
 
         public ModuleResponse()
         {
@@ -23,6 +25,7 @@ namespace SimplySecureLocal.Data.Models
         [JsonProperty("armed")]
         public bool Armed { get; set; }
 
-        public string Action => Triggered ? ModuleResponse.AlarmFlag : "";
+        [JsonProperty("action")]
+        public string Action => Triggered ? ModuleResponse.AlarmFlag : ModuleResponse.NoActionFlag;
     }
 }
