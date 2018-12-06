@@ -11,6 +11,8 @@ namespace SimplySecureLocal.Data.DataContext
 
         internal DbSet<StateChange> StateChanges { get; set; }
 
+        internal DbSet<Module> Modules { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=SimplySecureLocalDb.db");
