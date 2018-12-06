@@ -37,8 +37,6 @@ namespace SimplySecureLocal.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Acknowledged");
-
                     b.Property<DateTime>("DateCreated");
 
                     b.Property<Guid>("ModuleId");
@@ -48,6 +46,22 @@ namespace SimplySecureLocal.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HeartBeats");
+                });
+
+            modelBuilder.Entity("SimplySecureLocal.Data.Models.Module", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<DateTime>("LastHeartBeat");
+
+                    b.Property<bool>("State");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Modules");
                 });
 
             modelBuilder.Entity("SimplySecureLocal.Data.Models.StateChange", b =>
