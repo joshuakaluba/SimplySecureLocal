@@ -10,6 +10,7 @@ using SimplySecureLocal.Data.DataAccessLayer.StateChange;
 using SimplySecureLocal.Data.Initialization;
 using NSwag.AspNetCore;
 using NJsonSchema;
+using SimplySecureLocal.Data.DataAccessLayer.Module;
 
 namespace SimplySecureLocal
 {
@@ -29,6 +30,8 @@ namespace SimplySecureLocal
             services.AddScoped<IHeartBeatRepository, HeartBeatRepository>();
 
             services.AddScoped<IStateChangesRepository, StateChangesRepository>();
+
+            services.AddScoped<IModuleRepository, ModuleRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
