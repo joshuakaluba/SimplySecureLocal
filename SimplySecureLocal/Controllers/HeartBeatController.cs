@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
+using SimplySecureLocal.Data.DataAccessLayer.Heartbeat;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
 using System;
@@ -12,35 +12,36 @@ namespace SimplySecureLocal.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class HeartBeatController : Controller<HeartBeatController>
+    public class HeartbeatController : Controller<HeartbeatController>
     {
-        public HeartBeatController(IHeartBeatRepository heartBeatRepository, IModuleRepository moduleRepository, ILogger<HeartBeatController> logger)
+        public HeartbeatController(IHeartbeatRepository heartbeatRepository, IModuleRepository moduleRepository, ILogger<HeartbeatController> logger)
         : base(logger)
         {
-            HeartBeatRepository = heartBeatRepository;
+            HeartbeatRepository = heartbeatRepository;
+
             ModuleRepository = moduleRepository;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] BaseComponentViewModel heartBeatViewModel)
+        public async Task<IActionResult> Post([FromBody] BaseComponentViewModel heartbeatViewModel)
         {
             try
             {
-                var id = Guid.Parse(heartBeatViewModel.ModuleId);
+                var id = Guid.Parse(heartbeatViewModel.ModuleId);
 
-                var heartBeat = new HeartBeat
+                var heartbeat = new Heartbeat
                 {
                     ModuleId = id,
 
-                    State = heartBeatViewModel.State
+                    State = heartbeatViewModel.State
                 };
 
-                await HeartBeatRepository.CreateHeartBeat(heartBeat);
+                await HeartbeatRepository.CreateHeartbeat(heartbeat);
 
-                await ModuleRepository.UpdateModuleHeartBeat
-                    (new Module(id, heartBeatViewModel.State));
+                await ModuleRepository.UpdateModuleHeartbeat
+                    (new Module(id, heartbeatViewModel.State));
 
-                return Ok(heartBeat);
+                return Ok(heartbeat);
             }
             catch (Exception ex)
             {

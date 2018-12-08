@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-namespace SimplySecureLocal.Data.DataAccessLayer.HeartBeat
+namespace SimplySecureLocal.Data.DataAccessLayer.Heartbeat
 {
-    public interface IHeartBeatRepository
+    public interface IHeartbeatRepository
     {
-        Task CreateHeartBeat(Models.HeartBeat bootMessage);
+        Task CreateHeartbeat(Models.Heartbeat heartbeat);
     }
 }

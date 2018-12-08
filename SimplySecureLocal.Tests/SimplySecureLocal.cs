@@ -13,7 +13,7 @@ namespace SimplySecureLocal.Tests
         {
             const string moduleId = "not_a_guid";
 
-            var heartBeat = new HeartBeat
+            var heartbeat = new Heartbeat
             {
                 ModuleId = Guid.Parse(moduleId),
 
@@ -26,14 +26,14 @@ namespace SimplySecureLocal.Tests
         {
             const string moduleId = "ab843dae-05d0-4031-b585-781b724659b3";
 
-            var heartBeat = new HeartBeat
+            var heartbeat = new Heartbeat
             {
                 ModuleId = Guid.Parse(moduleId),
 
                 State = true
             };
 
-            Assert.AreEqual(heartBeat.ModuleId.ToString().ToUpper(), moduleId.ToUpper());
+            Assert.AreEqual(heartbeat.ModuleId.ToString().ToUpper(), moduleId.ToUpper());
         }
     }
 }

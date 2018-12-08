@@ -7,7 +7,7 @@ namespace SimplySecureLocal.Data.DataContext
     {
         internal DbSet<BootMessage> BootMessages { get; set; }
 
-        internal DbSet<HeartBeat> HeartBeats { get; set; }
+        internal DbSet<Heartbeat> Heartbeats { get; set; }
 
         internal DbSet<StateChange> StateChanges { get; set; }
 

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
-using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
+using SimplySecureLocal.Data.DataAccessLayer.Heartbeat;
 using SimplySecureLocal.Data.DataAccessLayer.StateChange;
 using SimplySecureLocal.Data.Initialization;
 using NSwag.AspNetCore;
@@ -27,7 +27,7 @@ namespace SimplySecureLocal
         {
             services.AddScoped<IBootMessageRepository, BootMessageRepository>();
 
-            services.AddScoped<IHeartBeatRepository, HeartBeatRepository>();
+            services.AddScoped<IHeartbeatRepository, HeartbeatRepository>();
 
             services.AddScoped<IStateChangesRepository, StateChangesRepository>();
 

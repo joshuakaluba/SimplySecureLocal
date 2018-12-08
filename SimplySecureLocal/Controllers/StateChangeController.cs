@@ -5,6 +5,7 @@ using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
 using System;
 using System.Threading.Tasks;
+using SimplySecureLocal.Data.DataAccessLayer.Module;
 
 namespace SimplySecureLocal.Controllers
 {
@@ -13,10 +14,12 @@ namespace SimplySecureLocal.Controllers
     [ApiController]
     public class StateChangeController : Controller<StateChangeController>
     {
-        public StateChangeController(IStateChangesRepository stateChangesRepository, ILogger<StateChangeController> logger)
+        public StateChangeController(IModuleRepository moduleRepository,  IStateChangesRepository stateChangesRepository, ILogger<StateChangeController> logger)
             : base(logger)
         {
             StateChangesRepository = stateChangesRepository;
+
+            ModuleRepository = moduleRepository;
         }
 
         public async Task<IActionResult> Get()
@@ -41,14 +44,18 @@ namespace SimplySecureLocal.Controllers
         {
             try
             {
+                var id = Guid.Parse(stateChangeViewModel.ModuleId);
+
                 var stateChange = new StateChange
                 {
-                    ModuleId = Guid.Parse(stateChangeViewModel.ModuleId),
+                    ModuleId = id,
 
                     State = stateChangeViewModel.State
                 };
 
                 await StateChangesRepository.CreateStateChange(stateChange);
+
+                await ModuleRepository.UpdateModuleHeartbeat(new Module(id, stateChangeViewModel.State));
 
                 var moduleResponse
                     = await StateChangesRepository

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
+using SimplySecureLocal.Data.DataAccessLayer.Heartbeat;
 using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.ViewModels;
 using System;

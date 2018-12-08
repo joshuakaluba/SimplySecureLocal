@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
-using SimplySecureLocal.Data.DataAccessLayer.HeartBeat;
+using SimplySecureLocal.Data.DataAccessLayer.Heartbeat;
+using SimplySecureLocal.Data.DataAccessLayer.Module;
 using SimplySecureLocal.Data.DataAccessLayer.StateChange;
 
 namespace SimplySecureLocal.Controllers
@@ -12,9 +13,11 @@ namespace SimplySecureLocal.Controllers
 
         protected IBootMessageRepository BootMessageRepository;
 
-        protected IHeartBeatRepository HeartBeatRepository;
+        protected IHeartbeatRepository HeartbeatRepository;
 
         protected IStateChangesRepository StateChangesRepository;
+
+        protected IModuleRepository ModuleRepository;
 
         protected Controller(ILogger<T> logger)
         {
