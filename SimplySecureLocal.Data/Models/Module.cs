@@ -15,7 +15,8 @@ namespace SimplySecureLocal.Data.Models
             State = state;
         }
 
-        public DateTime LastHeartBeat { get; set; } = DateTime.Now;
+        [JsonProperty("lastHeartbeat")]
+        public DateTime LastHeartbeat { get; set; } = DateTime.Now;
 
         [JsonProperty("state")]
         public bool State { get; set; }

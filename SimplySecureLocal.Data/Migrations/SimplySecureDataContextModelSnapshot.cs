@@ -55,7 +55,7 @@ namespace SimplySecureLocal.Data.Migrations
 
                     b.Property<DateTime>("DateCreated");
 
-                    b.Property<DateTime>("LastHeartBeat");
+                    b.Property<DateTime>("LastHeartbeat");
 
                     b.Property<bool>("State");
 

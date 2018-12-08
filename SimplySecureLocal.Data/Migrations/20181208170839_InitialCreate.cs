@@ -41,7 +41,7 @@ namespace SimplySecureLocal.Data.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: false),
-                    LastHeartBeat = table.Column<DateTime>(nullable: false),
+                    LastHeartbeat = table.Column<DateTime>(nullable: false),
                     State = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>

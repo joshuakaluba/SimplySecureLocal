@@ -9,7 +9,7 @@ using SimplySecureLocal.Data.DataContext;
 namespace SimplySecureLocal.Data.Migrations
 {
     [DbContext(typeof(SimplySecureDataContext))]
-    [Migration("20181208165158_InitialCreate")]
+    [Migration("20181208170839_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,7 +57,7 @@ namespace SimplySecureLocal.Data.Migrations
 
                     b.Property<DateTime>("DateCreated");
 
-                    b.Property<DateTime>("LastHeartBeat");
+                    b.Property<DateTime>("LastHeartbeat");
 
                     b.Property<bool>("State");
 

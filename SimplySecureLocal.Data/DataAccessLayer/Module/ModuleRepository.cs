@@ -34,7 +34,7 @@ namespace SimplySecureLocal.Data.DataAccessLayer.Module
                     return;
                 }
 
-                dbModule.LastHeartBeat = DateTime.UtcNow;
+                dbModule.LastHeartbeat = DateTime.UtcNow;
                 dbModule.State = module.State;
 
                 DataContext.Modules.Update(dbModule);
