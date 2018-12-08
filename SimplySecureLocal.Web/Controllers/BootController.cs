@@ -7,7 +7,7 @@ using System;
 using System.Threading.Tasks;
 using SimplySecureLocal.Data.DataAccessLayer.Module;
 
-namespace SimplySecureLocal.Controllers
+namespace SimplySecureLocal.Web.Controllers
 {
     [Route("api/[controller]")]
     [Produces("application/json")]

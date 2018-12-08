@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplySecureLocal", "SimplySecureLocal\SimplySecureLocal.csproj", "{835DE277-9407-4196-AE3B-39F93208F440}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplySecureLocal.Web", "SimplySecureLocal.Web\SimplySecureLocal.Web.csproj", "{835DE277-9407-4196-AE3B-39F93208F440}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplySecureLocal.Data", "SimplySecureLocal.Data\SimplySecureLocal.Data.csproj", "{FF09936A-27C7-4156-8BCB-DF9A15443198}"
 EndProject

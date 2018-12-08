@@ -7,7 +7,7 @@ using SimplySecureLocal.Data.Models;
 using SimplySecureLocal.Data.Models.Static;
 using SimplySecureLocal.Data.Services;
 
-namespace SimplySecureLocal.Controllers
+namespace SimplySecureLocal.Web.Controllers
 {
     [Route("/")]
     [ApiController]

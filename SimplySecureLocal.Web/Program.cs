@@ -5,7 +5,7 @@ using NLog.Web;
 using SimplySecureLocal.Data.Models.Static;
 using System;
 
-namespace SimplySecureLocal
+namespace SimplySecureLocal.Web
 {
     public class Program
     {

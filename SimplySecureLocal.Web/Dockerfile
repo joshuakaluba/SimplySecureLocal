@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY . ./
 
-ENTRYPOINT ["dotnet", "SimplySecureLocal.dll"]
+ENTRYPOINT ["dotnet", "SimplySecureLocal.Web.dll"]

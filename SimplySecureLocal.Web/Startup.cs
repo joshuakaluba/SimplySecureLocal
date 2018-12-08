@@ -12,7 +12,7 @@ using NSwag.AspNetCore;
 using NJsonSchema;
 using SimplySecureLocal.Data.DataAccessLayer.Module;
 
-namespace SimplySecureLocal
+namespace SimplySecureLocal.Web
 {
     public class Startup
     {

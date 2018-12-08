@@ -5,7 +5,7 @@ using SimplySecureLocal.Data.DataAccessLayer.Heartbeat;
 using SimplySecureLocal.Data.DataAccessLayer.Module;
 using SimplySecureLocal.Data.DataAccessLayer.StateChange;
 
-namespace SimplySecureLocal.Controllers
+namespace SimplySecureLocal.Web.Controllers
 {
     public abstract class Controller<T> : ControllerBase
     {
