@@ -64,7 +64,7 @@ namespace SimplySecureLocal.Data.Migrations
                     b.ToTable("Modules");
                 });
 
-            modelBuilder.Entity("SimplySecureLocal.Data.Models.StateChange", b =>
+            modelBuilder.Entity("SimplySecureLocal.Data.Models.ModuleEvent", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -77,7 +77,7 @@ namespace SimplySecureLocal.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StateChanges");
+                    b.ToTable("ModuleEvents");
                 });
 #pragma warning restore 612, 618
         }
