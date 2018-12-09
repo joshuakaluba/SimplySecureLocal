@@ -13,12 +13,11 @@ namespace SimplySecureLocal.Data.Initialization
         {
             using (var serviceScope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                using (var db = new SimplySecureDataContext())
+                var dataContext = serviceScope.ServiceProvider.GetService<SimplySecureDataContext>();
+
+                if (dataContext.Database.GetPendingMigrations().Any())
                 {
-                    if (db.Database.GetPendingMigrations().Any())
-                    {
-                        await db.Database.MigrateAsync();
-                    }
+                    await dataContext.Database.MigrateAsync();
                 }
             }
         }
