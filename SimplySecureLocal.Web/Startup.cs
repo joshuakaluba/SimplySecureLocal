@@ -6,7 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
 using SimplySecureLocal.Data.DataAccessLayer.Heartbeat;
-using SimplySecureLocal.Data.DataAccessLayer.StateChange;
+using SimplySecureLocal.Data.DataAccessLayer.ModuleEvent;
+using SimplySecureLocal.Data.DataAccessLayer.ModuleSynchronization;
 using SimplySecureLocal.Data.Initialization;
 using NSwag.AspNetCore;
 using NJsonSchema;
@@ -29,9 +30,11 @@ namespace SimplySecureLocal.Web
 
             services.AddScoped<IHeartbeatRepository, HeartbeatRepository>();
 
-            services.AddScoped<IStateChangesRepository, StateChangesRepository>();
+            services.AddScoped<IModuleEventRepository, ModuleEventRepository>();
 
             services.AddScoped<IModuleRepository, ModuleRepository>();
+
+            services.AddScoped<IModuleSynchronizationRepository, ModuleSynchronizationRepository>();
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
