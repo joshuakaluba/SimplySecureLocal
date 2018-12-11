@@ -9,7 +9,7 @@ namespace SimplySecureLocal.Data.DataContext
 
         internal DbSet<Heartbeat> Heartbeats { get; set; }
 
-        internal DbSet<StateChange> StateChanges { get; set; }
+        internal DbSet<ModuleEvent> ModuleEvents { get; set; }
 
         internal DbSet<Module> Modules { get; set; }
 
