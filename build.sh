@@ -1,0 +1,2 @@
+dotnet publish ./SimplySecureLocal.Web/SimplySecureLocal.Web.csproj -o ../LocalPublishFiles -c Release
+#dotnet publish ./SimplySecureLocal.Web/SimplySecureLocal.Web.csproj -o D:/Publish/SimplySecureLocal -c Release
