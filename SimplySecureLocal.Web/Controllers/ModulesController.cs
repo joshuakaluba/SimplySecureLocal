@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SimplySecureLocal.Data.DataAccessLayer.Heartbeat;
+using SimplySecureLocal.Data.DataAccessLayer.Module;
 using SimplySecureLocal.Data.Models;
-using SimplySecureLocal.Data.ViewModels;
 using System;
 using System.Threading.Tasks;
-using SimplySecureLocal.Data.DataAccessLayer.Module;
 
 namespace SimplySecureLocal.Web.Controllers
 {
@@ -14,10 +12,12 @@ namespace SimplySecureLocal.Web.Controllers
     [ApiController]
     public class ModulesController : Controller<ModulesController>
     {
+        private readonly IModuleRepository _moduleRepository;
+
         public ModulesController(IModuleRepository moduleRepository, ILogger<ModulesController> logger)
             : base(logger)
         {
-            ModuleRepository = moduleRepository;
+            _moduleRepository = moduleRepository;
         }
 
         public async Task<IActionResult> Get()
@@ -25,7 +25,7 @@ namespace SimplySecureLocal.Web.Controllers
             try
             {
                 var modules
-                    = await ModuleRepository.GetModules();
+                    = await _moduleRepository.GetModules();
 
                 return Ok(modules);
             }
