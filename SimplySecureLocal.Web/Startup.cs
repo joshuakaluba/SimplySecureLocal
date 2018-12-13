@@ -1,17 +1,16 @@
-﻿using System.Reflection;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NSwag.AspNetCore;
 using SimplySecureLocal.Data.DataAccessLayer.BootMessage;
 using SimplySecureLocal.Data.DataAccessLayer.Heartbeat;
+using SimplySecureLocal.Data.DataAccessLayer.Module;
 using SimplySecureLocal.Data.DataAccessLayer.ModuleEvent;
 using SimplySecureLocal.Data.DataAccessLayer.ModuleSynchronization;
 using SimplySecureLocal.Data.Initialization;
-using NSwag.AspNetCore;
-using NJsonSchema;
-using SimplySecureLocal.Data.DataAccessLayer.Module;
+using System.Reflection;
 
 namespace SimplySecureLocal.Web
 {
@@ -58,7 +57,7 @@ namespace SimplySecureLocal.Web
                 settings.GeneratorSettings.DefaultUrlTemplate = "{controller}/{action}/{id?}";
             });
 
-            DataContextInitializer.Seed(app.ApplicationServices).Wait();
+            DataContextInitializer.Seed().Wait();
         }
     }
 }
