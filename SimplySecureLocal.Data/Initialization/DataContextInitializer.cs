@@ -9,15 +9,13 @@ namespace SimplySecureLocal.Data.Initialization
 {
     public static class DataContextInitializer
     {
-        public static async Task Seed(IServiceProvider serviceProvider)
+        public static async Task Seed()
         {
-            using (var serviceScope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            using (var db = new SimplySecureDataContext())
             {
-                var dataContext = serviceScope.ServiceProvider.GetService<SimplySecureDataContext>();
-
-                if (dataContext.Database.GetPendingMigrations().Any())
+                if (db.Database.GetPendingMigrations().Any())
                 {
-                    await dataContext.Database.MigrateAsync();
+                    await db.Database.MigrateAsync();
                 }
             }
         }
