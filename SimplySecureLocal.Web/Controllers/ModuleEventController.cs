@@ -15,7 +15,6 @@ namespace SimplySecureLocal.Web.Controllers
     public class ModuleEventController : Controller<ModuleEventController>
     {
         private readonly IModuleEventRepository _moduleEventRepository;
-
         private readonly IModuleRepository _moduleRepository;
 
         public ModuleEventController(IModuleRepository moduleRepository, IModuleEventRepository moduleEventRepository, ILogger<ModuleEventController> logger)
