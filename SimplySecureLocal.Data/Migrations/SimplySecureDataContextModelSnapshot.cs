@@ -45,6 +45,8 @@ namespace SimplySecureLocal.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ModuleId");
+
                     b.ToTable("Heartbeats");
                 });
 
@@ -78,6 +80,14 @@ namespace SimplySecureLocal.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ModuleEvents");
+                });
+
+            modelBuilder.Entity("SimplySecureLocal.Data.Models.Heartbeat", b =>
+                {
+                    b.HasOne("SimplySecureLocal.Data.Models.Module", "Module")
+                        .WithMany()
+                        .HasForeignKey("ModuleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

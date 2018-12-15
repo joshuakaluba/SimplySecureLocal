@@ -9,7 +9,7 @@ using SimplySecureLocal.Data.DataContext;
 namespace SimplySecureLocal.Data.Migrations
 {
     [DbContext(typeof(SimplySecureDataContext))]
-    [Migration("20181209155633_InitialCreate")]
+    [Migration("20181213142254_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,6 +47,8 @@ namespace SimplySecureLocal.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ModuleId");
+
                     b.ToTable("Heartbeats");
                 });
 
@@ -80,6 +82,14 @@ namespace SimplySecureLocal.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ModuleEvents");
+                });
+
+            modelBuilder.Entity("SimplySecureLocal.Data.Models.Heartbeat", b =>
+                {
+                    b.HasOne("SimplySecureLocal.Data.Models.Module", "Module")
+                        .WithMany()
+                        .HasForeignKey("ModuleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
