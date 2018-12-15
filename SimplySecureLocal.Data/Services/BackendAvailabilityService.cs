@@ -13,13 +13,15 @@ namespace SimplySecureLocal.Data.Services
             {
                 using (var client = new HttpClient())
                 {
-                    var response = await client.GetAsync(ApplicationConfig.BackendHost);
+                    var response 
+                        = await client.GetAsync(ApplicationConfig.BackendHost);
 
                     return response.IsSuccessStatusCode;
                 }
             }
             catch (Exception)
             {
+                // if this method fails, the backend server is down. Return false as there is nothing else that we need to do
                 return false;
             }
         }
